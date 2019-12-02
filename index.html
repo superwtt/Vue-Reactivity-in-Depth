@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+       #app{
+           width: 500px;
+           margin: 100px;
+       }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                学生信息
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{name}}</li>
+                <li class="list-group-item">{{age}}</li>
+            </ul>
+        </div>
+        <input  class="form-control mt-2" type="text" v-model="name">
+
+        <button class="btn mt-2" @click="handleValueChange">改变学生信息</button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script src="./dep.js"></script>
+
+    <script src="./compiler.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                name: "wtt",
+                age: 100
+            },
+            created() {
+                // console.log("begin created");
+                setTimeout(() => {
+                    this.name = "我是 wtt";
+                }, 1500);
+            },
+            methods: {
+                handleValueChange() {
+                    this.name = "wtt is a girl";
+                    this.age = "She is 18 years old"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
